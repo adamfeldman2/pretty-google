@@ -106,15 +106,6 @@ startPage.time = function() {
 	// Creates AM or PM based on hour24 
 	var amPm = hour24 >= 12 ? ' p.m.' : ' a.m.'
 
-	// if (hour24 >= 12) {
-	// 	var pm = 'PM';
-	// 	// console.log(pm);
-	// }
-	// else {
-	// 	var am = 'AM';
-	// 	// console.log(am);
-	// }
-
 	var min = time.getMinutes(); //Stores minutes (0-59)
 
 	//Converts single digit minutes to have 0 in front
@@ -309,8 +300,6 @@ startPage.backgroundImage = function() {
 	else if (dayIndex === 6) {
 		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),url(../images/back8.jpg)');
 	}	
-
-	// console.log(dayIndex);
 };
 
 startPage.init = function() {
@@ -324,5 +313,4 @@ startPage.init = function() {
 
 $(function() {
 	startPage.init();
-    // console.log( "ready!" );
 });
