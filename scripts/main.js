@@ -280,25 +280,25 @@ startPage.backgroundImage = function() {
 	var dayIndex = today.getDay();
 
 	if (dayIndex === 0) {
-		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.27),rgba(0,0,0,0.27)),url(../images/back1.jpg)');
+		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.27),rgba(0,0,0,0.27)),url(images/back1.jpg)');
 	}
 	else if (dayIndex === 1) {
-		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(../images/back2.jpg)');
+		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(images/back2.jpg)');
 	}
 	else if (dayIndex === 2) {
-		$('body').css('background-image','linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)),url(../images/back3.jpg)');
+		$('body').css('background-image','linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)),url(images/back3.jpg)');
 	}	
 	else if (dayIndex === 3) {
-		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.47),rgba(0,0,0,0.47)),url(../images/back4.jpg)');
+		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.47),rgba(0,0,0,0.47)),url(images/back4.jpg)');
 	}
 	else if (dayIndex === 4) {
-		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url(../images/back5.jpg)');
+		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url(images/back5.jpg)');
 	}
 	else if (dayIndex === 5) {
-		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)),url(../images/back6.jpg)');
+		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)),url(images/back6.jpg)');
 	}	
 	else if (dayIndex === 6) {
-		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),url(../images/back8.jpg)');
+		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),url(images/back8.jpg)');
 	}	
 };
 
