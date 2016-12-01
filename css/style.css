@@ -257,7 +257,7 @@ section.topRow .timeWrapper #amPm {
 
 main {
   position: absolute;
-  top: 33%;
+  top: 31.5%;
   transform: translateY(-50%);
   left: 50%;
   transform: translateX(-50%);
@@ -324,6 +324,30 @@ footer a {
 
 footer a:hover, footer a:focus {
   color: #ededed;
+}
+
+@media all and (max-height: 625px) {
+  .quoteWrapper {
+    bottom: 15%;
+  }
+}
+
+@media all and (max-height: 530px) {
+  .quoteWrapper {
+    bottom: 10%;
+  }
+}
+
+@media all and (max-height: 465px) {
+  .quoteWrapper {
+    bottom: 2%;
+  }
+}
+
+@media all and (max-height: 400px) {
+  .quoteWrapper {
+    display: none;
+  }
 }
 
 @media all and (min-width: 1650px) {
