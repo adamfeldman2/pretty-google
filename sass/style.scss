@@ -18,16 +18,29 @@ ul {
 }
 
 html {
-	font-size: 10px;
+	font-size: 10.2px;
 }
 
 body {
 	height: 100vh;
 	color: white;
-	letter-spacing: .7px;
+	letter-spacing: .4px;
 	background-size: cover;
 	background-attachment: fixed;
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Cabin', sans-serif;
+}
+
+.preloader {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 9999;
+   background-image: url('../images/spin.gif');
+   background-repeat: no-repeat; 
+   background-color: #FFF;
+   background-position: center;
 }
 
 .wrapper {
@@ -45,7 +58,7 @@ section.topRow {
 	justify-content: space-between;
 	position: relative;
 	font-weight: 300;
-	font-size: 1.67rem;
+	font-size: 1.87rem;
 	
 	.tempWrapper {
 		display: flex;
@@ -53,8 +66,8 @@ section.topRow {
 
 		#weatherIcon img {
 			position: relative;
-			top: -1.3px;
-			width: 21px;
+			top: -1.5px;
+			width: 22px;
 			margin: 0 30px 0 5px;
 		}
 	}
@@ -62,10 +75,10 @@ section.topRow {
 	.changeScaleWrapper {
 		display: flex;
 		position: absolute;
-		left: 74px;
+		left: 78px;
 		top: 50%;
 		transform: translateY(-50%);
-		font-size: 10px;
+		font-size: 1.32rem;
 
 		p {
 			letter-spacing: .7px;
@@ -93,6 +106,8 @@ section.topRow {
 		#amPm {
 			margin-left: 3px;
 		   align-self: flex-end;
+		   position: relative;
+		   bottom: 1px;
 		   font-size: 1.44rem;
 		}
 	}	
@@ -112,7 +127,7 @@ main {
 
 h1 {
 	text-align: center;
-	font-size: 7.8rem;
+	font-size: 8.3rem;
 }
 
 form {
@@ -120,9 +135,11 @@ form {
 	flex-direction: column;
 
 	input.searchArea {
-		padding: 7px 12px;
+		padding: 8px 12px;
 		font-weight: 400;
 		width: 700px;
+		border: none;
+		border-radius: 0%;
 		margin: 15px auto 0 auto;
 		font-size: 2.5rem;
 		
@@ -134,20 +151,17 @@ form {
 }
 
 .quoteWrapper {
-	position: absolute;
-	bottom: 27%;
-	right: 50%;
-	transform: translateX(50%);
 	width: 90%;
+	margin: 63px auto 0 auto;
 	text-align: center;
 	font-weight: 200;
-	font-size: 1.9rem;
+	font-size: 2.13rem;
 
 	#author {
 		font-style: italic;
 		font-weight: 100;
 		margin-top: 10px;
-		font-size: 1.53rem;
+		font-size: 1.79rem;
 	}
 }
 
@@ -159,84 +173,29 @@ footer {
 	left: 0;
 	padding: 0 10px 2px 10px;
 	font-weight: 200;
-	color: darken(white,32%);
+	color: darken(white,17%);
 	font-size: 10.8px;
 
 	& a {
-		color: darken(white,32%);
+		color: darken(white,17%);
 		text-decoration: underline;
 		transition: color .14s linear;
 
 		&:hover, &:focus {
-			color: darken(white,7%); 
+			color: white; 
 		}
-	}
-}
-
-// media queries //
-@media all and (max-height: 625px) {
-	.quoteWrapper {
-		bottom: 20%;
-	}
-}
-
-@media all and (max-height: 530px) {
-	.quoteWrapper {
-		bottom: 8%;
-	}
-}
-
-@media all and (max-height: 465px) {
-	.quoteWrapper {
-		display: none;
 	}
 }
 
 @media all and (min-width: 1650px) {
 	html {
-		font-size: 13.5px;
+		font-size: 11.5px;
 	}
-
-	main {
-		top: 35%;
-	}
-
-	.quoteWrapper {
-		bottom: 41%;
-	}
-}
-
-@media all and (min-width: 1400px) {
-	html {
-		font-size: 12.5px;
-	}
-
-	main {
-		top: 35%;
-		form {
-
-			input.searchArea {
-				width: 900px;
-				
-				&:focus {
-					outline: none;
-				}
-
-			}
-		}
-
-	}
-
-	.quoteWrapper {
-		bottom: 41%;
-	}
-
-
 }
 
 @media all and (max-width: 820px) {
 	html {
-		font-size: 9.5px;
+		font-size: 9.9px;
 	}
 
 	section.topRow{	
@@ -309,7 +268,7 @@ footer {
 
 @media all and (max-width: 640px) {
 	html {
-		font-size: 8.5px;
+		font-size: 8.8px;
 	}
 
 	section.topRow{
@@ -317,7 +276,7 @@ footer {
 			display: flex;
 			position: absolute;
 			left: 0px;
-			top: 34px;
+			top: 40px;
 			transform: translateY(-50%);
 
 			& p:nth-child(1) {
@@ -368,20 +327,20 @@ footer {
 	}
 
 	.quoteWrapper {
-		position: absolute;
-		bottom: 25%;
-		right: 50%;
-		transform: translateX(50%);
+		// position: absolute;
+		// bottom: 25%;
+		// right: 50%;
+		// transform: translateX(50%);
 		width: 90%;
 		text-align: center;
 		font-weight: 200;
-		font-size: 1.7rem;
+		font-size: 1.9rem;
 
 		#author {
 			font-style: italic;
 			font-weight: 100;
 			margin-top: 10px;
-			font-size: 1.49rem;
+			font-size: 1.6rem;
 		}
 	}
 }

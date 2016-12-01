@@ -1,31 +1,60 @@
 var startPage = {}
 
-// Get location info from API
-startPage.getLocation = function() {
-	$.ajax({
-		url: 'http://api.wunderground.com/api/f609c12eaf0610a5/geolookup/q/autoip.json',
-		method: 'GET',
-		dataType: 'jsonp'
-	})
-	.then(function(cityData) {
+// Displays background image depending on day of the week
+startPage.backgroundImage = function() {
+	var today = new Date();
 
-		// console.log(cityData);
-		
-		var cityName = cityData.location.city; //Stores name of city
-		console.log('Your city: ' + cityName);
+	var dayIndex = today.getDay();
 
-		var countryName = cityData.location.country_name; //Stores name of country
-		// console.log(countryName);
-
-		startPage.getWeather(cityName,countryName);
-	
-	});
+	if (dayIndex === 0) {
+		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.27),rgba(0,0,0,0.27)),url(images/back1.jpg)');
+	}
+	else if (dayIndex === 1) {
+		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(images/back2.jpg)');
+	}
+	else if (dayIndex === 2) {
+		$('body').css('background-image','linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)),url(images/back3.jpg)');
+	}	
+	else if (dayIndex === 3) {
+		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.47),rgba(0,0,0,0.47)),url(images/back4.jpg)');
+	}
+	else if (dayIndex === 4) {
+		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url(images/back5.jpg)');
+	}
+	else if (dayIndex === 5) {
+		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)),url(images/back6.jpg)');
+	}	
+	else if (dayIndex === 6) {
+		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),url(images/back8.jpg)');
+	}	
 };
 
+// Get location info from API
+// startPage.getLocation = function() {
+// 	$.ajax({
+// 		url: 'http://api.wunderground.com/api/3e3c10c9afa27ff9/geolookup/q/autoip.json',
+// 		method: 'GET',
+// 		dataType: 'jsonp'
+// 	})
+// 	.then(function(cityData) {
+
+// 		// console.log(cityData);
+		
+// 		var cityName = cityData.location.city; //Stores name of city
+// 		console.log('Your city: ' + cityName);
+
+// 		var countryName = cityData.location.country_name; //Stores name of country
+// 		// console.log(countryName);
+
+// 		startPage.getWeather(cityName,countryName);
+	
+// 	});
+// };
+
 // Get weather forecast for specified location
-startPage.getWeather = function(cityName,countryName) {
+startPage.getWeather = function() {
 	$.ajax({
-		url: 'http://api.wunderground.com/api/f609c12eaf0610a5/conditions/q/autoip.json',
+		url: 'http://api.wunderground.com/api/3e3c10c9afa27ff9/conditions/q/autoip.json',
 		method: 'GET',
 		dataType: 'json'
 	})
@@ -44,13 +73,13 @@ startPage.getWeather = function(cityName,countryName) {
 		var weatherIconUrl = weatherForecast.current_observation.icon_url; // Stores url to current weather .gif 
 		// console.log(icon_url);
 
-		startPage.displayWeatherCity(cityName,currentTempC,currentTempF,weatherDescription,weatherIconUrl);
+		startPage.displayWeatherCity(currentTempC,currentTempF,weatherDescription,weatherIconUrl);
 
 	});
 };
 
 // Displays the weather and city on the page
-startPage.displayWeatherCity = function(cityName,currentTempC,currentTempF,weatherDescription,weatherIconUrl) {
+startPage.displayWeatherCity = function(currentTempC,currentTempF,weatherDescription,weatherIconUrl) {
 
 	// Displays the temperature in Celsius on page
 	$('#temp').html(Math.round(currentTempC) + '&deg;C');
@@ -274,43 +303,24 @@ startPage.quote = function() {
 		$('#author').html(author);
 };
 
-startPage.backgroundImage = function() {
-	var today = new Date();
 
-	var dayIndex = today.getDay();
-
-	if (dayIndex === 0) {
-		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.27),rgba(0,0,0,0.27)),url(images/back1.jpg)');
-	}
-	else if (dayIndex === 1) {
-		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(images/back2.jpg)');
-	}
-	else if (dayIndex === 2) {
-		$('body').css('background-image','linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)),url(images/back3.jpg)');
-	}	
-	else if (dayIndex === 3) {
-		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.47),rgba(0,0,0,0.47)),url(images/back4.jpg)');
-	}
-	else if (dayIndex === 4) {
-		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url(images/back5.jpg)');
-	}
-	else if (dayIndex === 5) {
-		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)),url(images/back6.jpg)');
-	}	
-	else if (dayIndex === 6) {
-		$('body').css('background-image','linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),url(images/back8.jpg)');
-	}	
-};
 
 startPage.init = function() {
-	startPage.getLocation();
+	startPage.backgroundImage();
+	startPage.getWeather();
 	startPage.todayDate();
 	startPage.time();setInterval(startPage.time,5000);
 	startPage.greeting();
 	startPage.quote();
-	startPage.backgroundImage();
+	
 }
 
-$(function() {
-	startPage.init();
+$(window).load(function() {
+   startPage.init();
+   $('.preloader').fadeOut('slow');
+
 });
+
+// $(function() {
+   
+// });
