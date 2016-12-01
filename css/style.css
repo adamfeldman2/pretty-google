@@ -328,23 +328,17 @@ footer a:hover, footer a:focus {
 
 @media all and (max-height: 625px) {
   .quoteWrapper {
-    bottom: 15%;
+    bottom: 20%;
   }
 }
 
 @media all and (max-height: 530px) {
   .quoteWrapper {
-    bottom: 10%;
+    bottom: 8%;
   }
 }
 
 @media all and (max-height: 465px) {
-  .quoteWrapper {
-    bottom: 2%;
-  }
-}
-
-@media all and (max-height: 400px) {
   .quoteWrapper {
     display: none;
   }
