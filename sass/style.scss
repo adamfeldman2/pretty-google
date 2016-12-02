@@ -50,10 +50,6 @@ body {
 	width: 100%;
 }
 
-.fa-input {
-  font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
 // topRow section begins //
 section.topRow {
 	display: flex;
@@ -167,11 +163,11 @@ form {
 		top: 47.8%;
 		transform: translateY(-50%); 
 		float: left;
-		transition: color .21s linear;
+		transition: color .19s linear;
 		font-size: 2.5rem;
 
 		&:hover, &:focus {
-			color: darken(#a9a9a9,22%);
+			color: darken(#a9a9a9,24%);
 		}
 	}
 }

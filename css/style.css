@@ -210,10 +210,6 @@ body {
   width: 100%;
 }
 
-.fa-input {
-  font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
 section.topRow {
   display: flex;
   justify-content: space-between;
@@ -323,12 +319,12 @@ form button[type='submit'] {
   top: 47.8%;
   transform: translateY(-50%);
   float: left;
-  transition: color .21s linear;
+  transition: color .19s linear;
   font-size: 2.5rem;
 }
 
 form button[type='submit']:hover, form button[type='submit']:focus {
-  color: #717171;
+  color: #6c6c6c;
 }
 
 .quoteWrapper {

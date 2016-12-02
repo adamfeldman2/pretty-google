@@ -54,7 +54,7 @@ startPage.backgroundImage = function() {
 // Get weather forecast for specified location
 startPage.getWeather = function() {
 	$.ajax({
-		// url: 'http://api.wunderground.com/api/3e3c10c9afa27ff9/conditions/q/autoip.json',
+		url: 'http://api.wunderground.com/api/3e3c10c9afa27ff9/conditions/q/autoip.json',
 		method: 'GET',
 		dataType: 'json'
 	})
