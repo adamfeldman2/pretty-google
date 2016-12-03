@@ -74,8 +74,11 @@ startPage.getWeather = function() {
 		// console.log(icon_url);
 
 		startPage.displayWeatherCity(currentTempC,currentTempF,weatherDescription,weatherIconUrl);
-
-	});
+	})
+	.fail(function() {
+   	$('#temp').html('Weather Unavailable 😢');
+   	$('.changeScaleWrapper').hide();
+  });
 };
 
 // Displays the weather and city on the page

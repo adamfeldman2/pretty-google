@@ -26,6 +26,7 @@ body {
 	color: white;
 	letter-spacing: .4px;
 	background-size: cover;
+	background-repeat: no-repeat;
 	background-attachment: fixed;
 	font-family: 'Cabin', sans-serif;
 }
@@ -44,7 +45,7 @@ body {
 }
 
 .wrapper {
-	padding: 10px 15px;
+	padding: 6px 15px;
 	position: relative;
 	height: 100vh;
 	width: 100%;
@@ -54,6 +55,7 @@ body {
 section.topRow {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	position: relative;
 	font-weight: 300;
 	font-size: 1.87rem;
@@ -66,14 +68,14 @@ section.topRow {
 			position: relative;
 			top: -1.0px;
 			width: 22px;
-			margin: 0 30px 0 5px;
+			margin: 0 30px 0 4px;
 		}
 	}
 
 	.changeScaleWrapper {
 		display: flex;
 		position: absolute;
-		left: 76px;
+		left: 73px;
 		top: 50%;
 		transform: translateY(-50%);
 		font-size: 1.3rem;
@@ -167,7 +169,7 @@ form {
 		font-size: 2.5rem;
 
 		&:hover, &:focus {
-			color: darken(#a9a9a9,24%);
+			color: darken(#a9a9a9,30%);
 		}
 	}
 }
