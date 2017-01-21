@@ -1,7 +1,7 @@
-var startPage = {}
+var homepage = {}
 
 // Displays background image depending on day of the week
-startPage.backgroundImage = function() {
+homepage.backgroundImage = function() {
 	var today = new Date();
 
 	var dayIndex = today.getDay();
@@ -29,51 +29,24 @@ startPage.backgroundImage = function() {
 	}	
 };
 
-// Get location info from API
-// startPage.getLocation = function() {
-// 	$.ajax({
-// 		url: 'http://api.wunderground.com/api/3e3c10c9afa27ff9/geolookup/q/autoip.json',
-// 		method: 'GET',
-// 		dataType: 'jsonp'
-// 	})
-// 	.then(function(cityData) {
-
-// 		// console.log(cityData);
-		
-// 		var cityName = cityData.location.city; //Stores name of city
-// 		console.log('Your city: ' + cityName);
-
-// 		var countryName = cityData.location.country_name; //Stores name of country
-// 		// console.log(countryName);
-
-// 		startPage.getWeather(cityName,countryName);
-	
-// 	});
-// };
-
 // Get weather forecast for specified location
-startPage.getWeather = function() {
+homepage.getWeather = function() {
 	$.ajax({
 		url: 'http://api.wunderground.com/api/3e3c10c9afa27ff9/conditions/q/autoip.json',
 		method: 'GET',
 		dataType: 'json'
 	})
 	.then(function(weatherForecast){
-		// console.log(weatherForecast);
 
 		var currentTempC = weatherForecast.current_observation.temp_c; //Stores current temperature in Celsius
-		// console.log(currentTempC);
 
 		var currentTempF = weatherForecast.current_observation.temp_f; //Stores current temperature in Fahrenheit
-		// console.log(currentTempF); 
 
 		var weatherDescription = weatherForecast.current_observation.weather; //  Stores description of current weather
-		// console.log(weatherDescription);
 
 		var weatherIconUrl = weatherForecast.current_observation.icon_url; // Stores url to current weather .gif 
-		// console.log(icon_url);
 
-		startPage.displayWeatherCity(currentTempC,currentTempF,weatherDescription,weatherIconUrl);
+		homepage.displayWeatherCity(currentTempC,currentTempF,weatherDescription,weatherIconUrl);
 	})
 	.fail(function() {
    	$('#temp').html('Weather Unavailable 😢');
@@ -82,7 +55,7 @@ startPage.getWeather = function() {
 };
 
 // Displays the weather and city on the page
-startPage.displayWeatherCity = function(currentTempC,currentTempF,weatherDescription,weatherIconUrl) {
+homepage.displayWeatherCity = function(currentTempC,currentTempF,weatherDescription,weatherIconUrl) {
 
 	// Displays the temperature in Celsius on page
 	$('#temp').html(Math.round(currentTempC) + '&deg;C');
@@ -103,7 +76,7 @@ startPage.displayWeatherCity = function(currentTempC,currentTempF,weatherDescrip
 };
 
 // Gets and displays date info
-startPage.todayDate = function() {
+homepage.todayDate = function() {
 	
 	var monthNames = [
 	  'January', 'February', 'March',
@@ -129,7 +102,7 @@ startPage.todayDate = function() {
 };
 
 //Get and display time
-startPage.time = function() {
+homepage.time = function() {
 	var time = new Date();
 
 	var hour24 = time.getHours(); //Stores hour (0-23)
@@ -147,15 +120,14 @@ startPage.time = function() {
 	$('#time').html(hour12 + ':' + digit0);
 	$('#amPm').html(amPm);
 
-	startPage.greeting(hour24);
+	homepage.greeting(hour24);
 };
 
 //Displays greeting on page
-startPage.greeting = function() {
+homepage.greeting = function() {
 	var time = new Date();
 
 	var hour24 = time.getHours();
-	// console.log(hour24);
 
 	if (hour24 >= 2 && hour24 <= 4) {
 		$('#greeting').html('Still awake?');
@@ -175,7 +147,7 @@ startPage.greeting = function() {
 };
 
 //Displays quote on the page
-startPage.quote = function() {
+homepage.quote = function() {
 	var quoteBank = [
 		{
 			quote: "Be the change that you wish to see in the world.",
@@ -306,24 +278,35 @@ startPage.quote = function() {
 		$('#author').html(author);
 };
 
+homepage.news = function() {	
+	$('.openNews').on('click', function() {
+		$('.newsFeedWrapper').animate({
+			'right': '0' 
+		}, 'slow');
+		$('.openNews').hide();
+		$('.closeNews').show();
+	});
+	$('.closeNews').on('click', function() {
+		$('.newsFeedWrapper').animate({
+			'right': '-320px'
+		},'slow');
+		$('.openNews').show();
+		$('.closeNews').hide();
+	});
+};
 
-
-startPage.init = function() {
-	startPage.backgroundImage();
-	startPage.getWeather();
-	startPage.todayDate();
-	startPage.time();setInterval(startPage.time,5000);
-	startPage.greeting();
-	startPage.quote();
-	
+homepage.init = function() {
+	homepage.backgroundImage();
+	homepage.getWeather();
+	homepage.todayDate();
+	homepage.time();setInterval(homepage.time,5000);
+	homepage.greeting();
+	homepage.quote();
+	homepage.news();
 }
 
 $(window).load(function() {
-   startPage.init();
+   homepage.init();
    $('.preloader').fadeOut('slow');
 
 });
-
-// $(function() {
-   
-// });
