@@ -141,7 +141,8 @@ ul {
   list-style: none; }
 
 html {
-  font-size: 10.2px; }
+  font-size: 10.2px;
+  overflow-x: hidden; }
 
 body {
   height: 100vh;
