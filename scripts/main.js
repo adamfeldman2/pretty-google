@@ -280,18 +280,18 @@ homepage.quote = function() {
 
 homepage.news = function() {	
 	// Opens news window
-	
 	$('.openNews').click(function(event){
         event.stopPropagation();
       $('.screenOverlay').fadeIn();
 		$('.screenOverlay').css('display', 'flex');
 
-    });
+   });
 
-   	$(document,'.closeNews').click(function(){
-			$('.screenOverlay').fadeOut();
-			$('.screenOverlay').css('display', 'none');
-    });
+	// Closes news window
+   $(document,'.closeNews').click(function(){
+		$('.screenOverlay').fadeOut();
+		$('.screenOverlay').css('display', 'none');
+   });
 
 };
 
