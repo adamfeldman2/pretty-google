@@ -278,7 +278,7 @@ section.topRow {
 
 main {
   position: absolute;
-  top: 29.9%;
+  top: 31.5%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -288,9 +288,6 @@ main {
   transform: translateX(-50%);
   height: 58vh;
   width: 100%; }
-  @media (max-width: 770px) {
-    main {
-      top: 31.5%; } }
 
 h1 {
   text-align: center;
