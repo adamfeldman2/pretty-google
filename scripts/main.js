@@ -279,20 +279,20 @@ homepage.quote = function() {
 };
 
 homepage.news = function() {	
-	$('.openNews').on('click', function() {
-		$('.newsFeedWrapper').animate({
-			'right': '0' 
-		}, 'slow');
-		$('.openNews').hide();
-		$('.closeNews').show();
-	});
-	$('.closeNews').on('click', function() {
-		$('.newsFeedWrapper').animate({
-			'right': '-320px'
-		},'slow');
-		$('.openNews').show();
-		$('.closeNews').hide();
-	});
+	// Opens news window
+	
+	$('.openNews').click(function(event){
+        event.stopPropagation();
+      $('.screenOverlay').fadeIn();
+		$('.screenOverlay').css('display', 'flex');
+
+    });
+
+   	$(document,'.closeNews').click(function(){
+			$('.screenOverlay').fadeOut();
+			$('.screenOverlay').css('display', 'none');
+    });
+
 };
 
 homepage.init = function() {
